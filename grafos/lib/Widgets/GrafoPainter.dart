@@ -1,7 +1,6 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-
 import '../Models/Grafo.dart';
 
 class GrafoPainter extends CustomPainter {
@@ -12,27 +11,32 @@ class GrafoPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     //Dibuja las aristas.
     for (int i = 0; i < grafo!.arestas!.length; i++) {
+      // Si la arista está marcada, la pinta de verde, si no, de negro
+      Color colorArista =
+          grafo!.arestas![i].marcada ? Colors.green : Colors.black;
       canvas.drawLine(
           Offset(grafo!.arestas![i].origem!.posX!.toDouble(),
               grafo!.arestas![i].origem!.posY!.toDouble()),
           Offset(grafo!.arestas![i].destino!.posX!.toDouble(),
               grafo!.arestas![i].destino!.posY!.toDouble()),
           Paint()
-            ..color = Colors.black
+            ..color = colorArista
             ..strokeWidth = 2.0);
     }
 
     // Dibuja los círculos de los vértices.
     for (int i = 0; i < grafo!.vertices!.length; i++) {
+      // Si el vértice está marcado, lo pinta de verde, si no, de rojo
+      Color colorVertice =
+          grafo!.vertices![i].marcado ? Colors.green : Colors.red;
       canvas.drawCircle(
         Offset(grafo!.vertices![i].posX!.toDouble(),
             grafo!.vertices![i].posY!.toDouble()),
         20,
-        Paint()..color = Colors.red,
+        Paint()..color = colorVertice,
       );
 
       // Agrega el ID del vértice al círculo.
-      // Verificación if
       if (grafo != null &&
           grafo!.vertices != null &&
           i < grafo!.vertices!.length) {
@@ -58,14 +62,13 @@ class GrafoPainter extends CustomPainter {
 
     // Dibuja los pesos de las aristas.
     for (int i = 0; i < grafo!.arestas!.length; i++) {
-      // Verificación if
       if (grafo != null &&
           grafo!.arestas != null &&
           i < grafo!.arestas!.length) {
         final textSpan = TextSpan(
           text: grafo!.arestas![i].peso!.toString(),
           style: const TextStyle(
-              color: Color.fromARGB(255, 77, 9, 9), fontSize: 22),
+              color: Color.fromARGB(255, 245, 226, 226), fontSize: 22),
         );
         final textPainter = TextPainter(
           text: textSpan,

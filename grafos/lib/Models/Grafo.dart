@@ -1,9 +1,9 @@
 // ignore_for_file: file_names
 
-import 'Aresta.dart';
+import 'Arista.dart';
 import 'Vertice.dart';
 
 class Grafo {
   List<Vertice>? vertices;
-  List<Aresta>? arestas;
+  List<Arista>? arestas;
 }

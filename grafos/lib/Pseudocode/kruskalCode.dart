@@ -1,12 +1,7 @@
-// ignore_for_file: avoid_print
+// ignore_for_file: file_names
 
-import 'package:grafos/Models/Conjunto.dart';
-
-import '../Models/Arista.dart';
-import '../Models/Grafo.dart';
-import '../Models/Vertice.dart';
-
-Grafo kruskal(Grafo grafo) {
+class KruscalCode {
+  String text = '''Grafo kruskal(Grafo grafo) {
   // Ordena las aristas del grafo de menor a mayor peso.
   grafo.arestas!.sort((a, b) => a.peso!.compareTo(b.peso!));
 
@@ -41,4 +36,6 @@ Grafo kruskal(Grafo grafo) {
   //haz un ciclo que revise si alguno de los vertices no tenga adyacentes, si no tiene adyacentes, agrega
 
   return arbol;
+}
+ ''';
 }

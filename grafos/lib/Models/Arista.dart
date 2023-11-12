@@ -2,9 +2,9 @@
 
 import 'Vertice.dart';
 
-class Aresta {
-  int? id;
+class Arista {
   Vertice? origem;
   Vertice? destino;
   int? peso;
+  bool marcada = false;
 }
