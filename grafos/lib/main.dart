@@ -1,4 +1,5 @@
 // ignore_for_file: avoid_print
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:grafos/Functions/dijkstra.dart';
 import 'package:grafos/Functions/generateDimensions.dart';
@@ -12,8 +13,13 @@ import 'package:grafos/Pseudocode/dijkstraCode.dart';
 import 'package:grafos/Pseudocode/kruskalCode.dart';
 import 'package:grafos/Pseudocode/primCode.dart';
 import 'package:grafos/Widgets/GrafoPainter.dart';
+import 'package:grafos/firebase_options.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
